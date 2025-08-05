@@ -1,28 +1,28 @@
 .clock {
-    width: 200px;
-    height: 200px;
-    background-color: #fff;
-    border-radius: 50%;
-    border:1px solid #ccc;
-    position: relative;
-    margin:auto;
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  position: relative;
+  margin: auto;
 }
 
-.number {
+.digit {
   position: absolute;
   top: 44%;
   left: 48%;
   transform-origin: center;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .hand {
-    width:50%;
-    height: 1px;
-    display: block;
-    position: absolute;
-   top: 50%;
+  width: 50%;
+  height: 1px;
+  display: block;
+  position: absolute;
+  top: 50%;
   right: 50%;
   transform-origin: 100% 50%; /* ← Fix here */
   transition: all 0.099s ease-in-out;

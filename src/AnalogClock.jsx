@@ -33,7 +33,7 @@ const AnalogClock = () => {
           return (
             <div
               key={digit}
-              className="number"
+              className="digit"
               style={{
                 transform: `rotate(${angle}deg) translate(90px) rotate(-${angle}deg)`,
               }}
