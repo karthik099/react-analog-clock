@@ -17,17 +17,46 @@ const AnalogClock = () => {
   const minutes = time.getMinutes();
   const seconds = time.getSeconds();
 
-console.log(hours,"-",minutes,"-",seconds)
+  console.log(hours, "-", minutes, "-", seconds);
 
-  const hourDeg = (hours % 12) * 30 +  minutes * 0.5;
-  const minuteDeg = minutes * 6 + seconds * 0.1;
-  const secondDeg = seconds * 6; // 360 / 60
+  // + 90 deg is to correct the angle
+  const secondDeg = seconds * 6 + 90;
+  const minuteDeg = minutes * 6 + seconds * 0.1 + 90;
+  const hourDeg = ((hours % 12) + minutes / 60) * 30 + 90;
+
+  const digits = Array.from({ length: 12 }, (_, i) => i + 1);
 
   return (
     <div className="clock">
-      <div className="hand hour" style={{ transform: `rotate(${hourDeg}deg)` }} >&nbsp;</div>
-      <div className="hand minute"style={{ transform: `rotate(${minuteDeg}deg)` }}>&nbsp;</div>
-      <div className="hand second"style={{ transform: `rotate(${secondDeg}deg)` }}>&nbsp;</div>
+        {digits.map((digit, i) => {
+          const angle = ((i + 3) * 30) + 210; // Each hour is 30 degrees apart, + 210deg to position the digits
+          return (
+            <div
+              key={digit}
+              className="number"
+              style={{
+                transform: `rotate(${angle}deg) translate(90px) rotate(-${angle}deg)`,
+              }}
+            >
+              {digit}
+            </div>
+          );
+        })}
+      <div className="hand hour" style={{ transform: `rotate(${hourDeg}deg)` }}>
+        &nbsp;
+      </div>
+      <div
+        className="hand minute"
+        style={{ transform: `rotate(${minuteDeg}deg)` }}
+      >
+        &nbsp;
+      </div>
+      <div
+        className="hand second"
+        style={{ transform: `rotate(${secondDeg}deg)` }}
+      >
+        &nbsp;
+      </div>
       <div className="center-dot">&nbsp;</div>
     </div>
   );

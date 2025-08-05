@@ -7,28 +7,37 @@
     position: relative;
     margin:auto;
 }
+
+.number {
+  position: absolute;
+  top: 44%;
+  left: 48%;
+  transform-origin: center;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
 .hand {
-    /* color:#fff; */
     width:50%;
     height: 1px;
     display: block;
     position: absolute;
    top: 50%;
-  left: 50%;
-  transform-origin: left center;
+  right: 50%;
+  transform-origin: 100% 50%; /* ← Fix here */
   transition: all 0.099s ease-in-out;
 }
 
 .hand.hour {
   width: 30%;
   height: 4px;
-  background: #000;
+  background: #bbb;
 }
 
 .hand.minute {
   width: 40%;
   height: 3px;
-  background: #555;
+  background: #bbb;
 }
 
 .hand.second {
